@@ -1,19 +1,18 @@
-// ...existing code...
-
 // Constants for heart icons
 const EMPTY_HEART = '♡';
 const FULL_HEART = '♥';
 
-// Add event listeners after DOM loads
+// Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', () => {
   // Select all heart elements
   const hearts = document.querySelectorAll('.like-glyph');
+  // Select the error modal and its message span
   const modal = document.getElementById('modal');
   const modalMsg = document.getElementById('modal-message');
 
   hearts.forEach(heart => {
     heart.addEventListener('click', () => {
-      // If heart is full, toggle back to empty
+      // If heart is already activated, "unlike" it
       if (heart.classList.contains('activated-heart')) {
         heart.textContent = EMPTY_HEART;
         heart.classList.remove('activated-heart');
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Provided function: do not change
+// Provided function to simulate server call
 function mimicServerCall(url="http://mimicServer.example.com", config={}) {
   return new Promise(function(resolve, reject) {
     setTimeout(function() {
@@ -49,5 +48,3 @@ function mimicServerCall(url="http://mimicServer.example.com", config={}) {
     }, 300);
   });
 }
-
-// ...existing code...
